@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h2>TODO List</h2>
+        <form action="" v-on:submit.prevent>
+            <input type="text" v-model="newItem">
+            <button v-on:click="addItem">Add</button>
+        </form>
+        <ul>
+            <li v-for="(todo, index ) in todos">
+                <input type="checkbox" v-model="todo.isDone">
+                <span v-bind:class="{ done: todo.isDone }">{{ todo.item }}</span>
+                <button v-on:click="deleteItem(index)">
+                    Delete
+                </button>
+            </li>
+        </ul>
+        <!-- <pre>{{ $data }}</pre> -->
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16"></script>
+    <script src="app/app.js"></script>
+</body>
+</html>
